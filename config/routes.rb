@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  #get 'welcome/index'
+  get 'welcome/index'
 
-  #resources :articles do
-  #  resources :comments
-  #end
-  #root 'welcome#index'
+  resources :articles do
+    resources :comments
+  end
+  root 'welcome#index'
 
   namespace :api do
     namespace :v1 do
