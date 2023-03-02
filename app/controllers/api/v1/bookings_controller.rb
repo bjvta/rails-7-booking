@@ -5,22 +5,23 @@ module Api
     class BookingsController < ApiController
       skip_before_action :verify_authenticity_token
       def index
-        render json: Booking.all
+        @bookings = Booking.all
+        render json: @bookings.map{ |b| b.as_json }
       end
       def create
         booking = Booking.create(booking_params)
-        render json: booking
+        render json: booking.as_json
       end
 
       def show
         booking = Booking.find(params[:id])
-        render json: booking
+        render json: booking.as_json
       end
 
       def update
         booking = Booking.find(params[:id])
         booking.update(booking_params)
-        render json: booking
+        render json: booking.as_json
       end
       def destroy
         Booking.destroy(params[:id])
