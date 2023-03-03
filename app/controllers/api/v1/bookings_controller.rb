@@ -8,6 +8,11 @@ module Api
         @bookings = Booking.all
         render json: @bookings.map{ |b| b.as_json }
       end
+
+      def list_for_calendar
+        @bookings = Booking.all
+      end
+
       def create
         booking = Booking.create(booking_params)
         render json: booking.as_json
@@ -23,6 +28,7 @@ module Api
         booking.update(booking_params)
         render json: booking.as_json
       end
+
       def destroy
         Booking.destroy(params[:id])
         render json: { success: true }

@@ -3,6 +3,14 @@ class Booking < ApplicationRecord
     time.strftime('%T')
   end
 
+  def start_date
+    "#{date.strftime('%F')}T#{time_readable}"
+  end
+
+  def end_date
+    "#{date.strftime('%F')}T#{(time + 3.hours).strftime('%T')}"
+  end
+
   def as_json(options=nil)
     super(options).merge({
       :name => self.name.titleize,
