@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       get 'health', to: 'health#index'
       resources :bookings, only: [:create, :index, :show, :update, :destroy, :calendar]
+      resources :employees, only: [:create, :index, :show, :update, :destroy]
       get 'bookings_for_calendar', to: 'bookings#list_for_calendar'
     end
   end
