@@ -8,7 +8,7 @@ class Booking < ApplicationRecord
   end
 
   def end_date
-    "#{date.strftime('%F')}T#{(time + 3.hours).strftime('%T')}"
+    "#{date.strftime('%F')}T#{(time + hours.hours).strftime('%T')}"
   end
 
   def as_json(options=nil)

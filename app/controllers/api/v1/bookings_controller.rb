@@ -6,7 +6,7 @@ module Api
       skip_before_action :verify_authenticity_token
       def index
         @bookings = Booking.all
-        render json: @bookings.map{ |b| b.as_json }
+        render json: @bookings.order(id: :desc).map{ |b| b.as_json }
       end
 
       def list_for_calendar
@@ -35,7 +35,7 @@ module Api
       end
       private
       def booking_params
-        params.require(:booking).permit(:name, :date, :time, :address)
+        params.require(:booking).permit(:name, :date, :time, :hours, :address)
       end
     end
   end
