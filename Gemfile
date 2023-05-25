@@ -13,7 +13,7 @@ gem "jbuilder"
 gem "pg", "~> 1.4"
 gem "puma", "~> 6.1"
 gem 'rack-cors'
-gem "rails", "~> 7.0.4"
+gem "rails", "~> 7.0.5"
 gem "redis", "~> 5.0"
 gem "rubocop-rails"
 gem "sprockets-rails"
